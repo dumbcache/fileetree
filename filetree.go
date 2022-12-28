@@ -5,9 +5,7 @@ import (
 	"io/fs"
 	"io/ioutil"
 	"math/rand"
-	"os"
 
-	"os/exec"
 	"time"
 )
 
@@ -21,12 +19,12 @@ var colors = []string{
 	// "\033[37m",
 }
 var (
+	space      = ""
 	vLine      = "\U00002502"
 	hLine      = "\U00002500"
-	colorBG    = "\033[40m"
 	colorReset = "\033[0m"
-	bgReset    = "\033[49m"
-	space      = ""
+	// bgReset    = "\033[49m"
+	// colorBG    = "\033[40m"
 )
 
 func random() int {
@@ -35,11 +33,11 @@ func random() int {
 	return r.Intn(6)
 }
 
-func execCommand(c string, args ...string) {
-	cmd := exec.Command(c, args...)
-	cmd.Stdout = os.Stdout
-	cmd.Run()
-}
+// func execCommand(c string, args ...string) {
+// 	cmd := exec.Command(c, args...)
+// 	cmd.Stdout = os.Stdout
+// 	cmd.Run()
+// }
 
 func readFiles(path string, color string, padding string, args ...string) {
 
